@@ -26,6 +26,9 @@ set guioptions=ac
 
 let mapleader = ","
 
+" Better buffer management, horrible setting name
+" set hidden
+
 set tabstop=2
 set smarttab
 set shiftwidth=2
@@ -35,6 +38,8 @@ set backspace=start,indent
 
 set incsearch
 
+" Add macports path to path
+set path+=/opt/local/bin
 " I'm so nice to Windoze
 set shellslash
 
@@ -47,6 +52,7 @@ let g:fuzzy_ceiling = 100000
 
 map <leader>t :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
+map <leader>T :FuzzyFinderRemoveCache<CR>:ruby finder.rescan!<CR>:FuzzyFinderTextMate<CR>
 
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>c :Bclose<CR>
