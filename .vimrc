@@ -11,6 +11,7 @@ set lazyredraw
 
 " completion on the command line
 set wildmenu
+set wildmode=list:longest
 
 " numbered lines
 set number
@@ -21,6 +22,10 @@ set wrap
 " no beeps
 set vb
 
+" central backup directories
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
 " no goofy buttons
 set guioptions=ac
 
@@ -28,15 +33,20 @@ let mapleader = ","
 
 " Better buffer management, horrible setting name
 " set hidden
-
-set tabstop=2
+set history=1000
+set sts=2
 set smarttab
 set shiftwidth=2
 set autoindent
 set expandtab
-set backspace=start,indent
-
+set backspace=start,eol,indent
 set incsearch
+set autoread
+set autowrite
+
+" With these options together, we only use case sensitive search when there is a captial letter in the search term
+set ignorecase
+set smartcase
 
 " Add macports path to path
 set path+=/opt/local/bin
@@ -47,8 +57,9 @@ set statusline=%F%m%r%h%w\ [Line=%03l,Col=%03v][%p%%]\ [ASCII=\%03.3b]\ [Format=
 set laststatus=2
 
 let g:fuzzy_ignore = "*.log"
-let g:fuzzy_matching_limit = 70
+let g:fuzzy_matching_limit = 7000
 let g:fuzzy_ceiling = 100000
+let g:speckyRunRdocKey = "<leader>r"
 
 map <leader>t :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
@@ -105,4 +116,3 @@ noremap <silent> ,mj <C-W>J
 " Remap omni-completion to CTRL+Space
 nmap <C-space> ea<C-n>
 imap <C-space> <C-n>
-
