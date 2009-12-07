@@ -66,7 +66,15 @@ map <leader>b :FuzzyFinderBuffer<CR>
 map <leader>T :FuzzyFinderRemoveCache<CR>:ruby finder.rescan!<CR>:FuzzyFinderTextMate<CR>
 
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-map <leader>c :Bclose<CR>
+
+" re-indent the whole file
+map <leader>i gg=G 
+
+" Open my custom help file
+map <leader>c :tabe ~/.vim/doc/cheetSheet.txt<CR>
+
+map <F2> :mksession! .vim_session <cr> " Quick write session with F2
+map <F3> :source .vim_session <cr>     " And load session with F3
 
 " Edit or load .vimrc
 nmap <silent> ,ev :e $MYVIMRC<CR>
@@ -116,3 +124,5 @@ noremap <silent> ,mj <C-W>J
 " Remap omni-completion to CTRL+Space
 nmap <C-space> ea<C-n>
 imap <C-space> <C-n>
+
+au BufEnter *.hs compiler ghc

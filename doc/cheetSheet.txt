@@ -1,0 +1,5 @@
+" vim: filetype=help foldmethod=marker foldmarker=<<<,>>> modifiable noreadonly
+
+:%s/\<some_word\>/new_word/gc           Confirm and replace all instance of some_word with new_word in the current file
+<C-D>                                   Scroll half page down
+<C-U>                                   Scroll half page up
