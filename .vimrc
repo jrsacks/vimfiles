@@ -30,6 +30,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set guioptions=ac
 
 let mapleader = ","
+" Browser for viewing documentation (in haskell)
+:let g:haddock_browser="/usr/bin/open"
 
 " Better buffer management, horrible setting name
 " set hidden
@@ -126,3 +128,14 @@ nmap <C-space> ea<C-n>
 imap <C-space> <C-n>
 
 au BufEnter *.hs compiler ghc
+
+function! CheatSheet(name) 
+  let cheat = system("cheat", a:name)
+  :tabe
+endfunction
+
+function RenameVariable(new_name)
+  let g:word = expand("<cword>")
+  substitute("%", g:word, a:new_name, "gc")
+endfun
+

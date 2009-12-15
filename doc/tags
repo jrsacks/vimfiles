@@ -409,3 +409,8 @@ specky.txt	specky.txt	/*specky.txt*
 sr	clojure.txt	/*sr*
 sw	clojure.txt	/*sw*
 vimclojure.txt	clojure.txt	/*vimclojure.txt*
+xml-plugin-callbacks	xml-plugin.txt	/*xml-plugin-callbacks*
+xml-plugin-html	xml-plugin.txt	/*xml-plugin-html*
+xml-plugin-mappings	xml-plugin.txt	/*xml-plugin-mappings*
+xml-plugin-settings	xml-plugin.txt	/*xml-plugin-settings*
+xml-plugin.txt	xml-plugin.txt	/*xml-plugin.txt*
