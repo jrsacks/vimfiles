@@ -108,6 +108,9 @@ noremap <silent> ,j :wincmd j<cr>
 noremap <silent> ,k :wincmd k<cr>
 noremap <silent> ,l :wincmd l<cr>
 
+" Replace all instances of the word under the cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
 " Close the window in the proper direction
 noremap <silent> ,cj :wincmd j<cr>:close<cr>
 noremap <silent> ,ck :wincmd k<cr>:close<cr>
@@ -133,9 +136,3 @@ function! CheatSheet(name)
   let cheat = system("cheat", a:name)
   :tabe
 endfunction
-
-function RenameVariable(new_name)
-  let g:word = expand("<cword>")
-  substitute("%", g:word, a:new_name, "gc")
-endfun
-

@@ -5,3 +5,4 @@
 <C-U>                                   Scroll half page up
 di)                                     Delete the contents of the paren block we're currently in. Use a instead of i to include the parens themselves
 :%s/\n/\r/g                             Replace newline with newline (notice difference between search and replace)
+:s/foo/bar/I                            Force a case sensitive search and replace of 'foo' in the current line
