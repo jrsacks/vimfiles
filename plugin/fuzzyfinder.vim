@@ -1546,7 +1546,7 @@ let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFi
 "-----------------------------------------------------------------------------
 " [All Mode] This is mapped to select completion item or finish input and
 " open a buffer/file in previous window.
-let g:FuzzyFinderOptions.Base.key_open = '<CR>'
+let g:FuzzyFinderOptions.Base.key_open = '<C-]>'
 " [All Mode] This is mapped to select completion item or finish input and
 " open a buffer/file in split new window
 let g:FuzzyFinderOptions.Base.key_open_split = '<C-j>'
@@ -1555,7 +1555,7 @@ let g:FuzzyFinderOptions.Base.key_open_split = '<C-j>'
 let g:FuzzyFinderOptions.Base.key_open_vsplit = '<C-k>'
 " [All Mode] This is mapped to select completion item or finish input and
 " open a buffer/file in a new tab page.
-let g:FuzzyFinderOptions.Base.key_open_tab = '<C-]>'
+let g:FuzzyFinderOptions.Base.key_open_tab = '<CR>'
 " [All Mode] This is mapped to switch to the next mode.
 let g:FuzzyFinderOptions.Base.key_next_mode = '<C-l>'
 " [All Mode] This is mapped to switch to the previous mode.

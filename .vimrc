@@ -79,7 +79,7 @@ map <F2> :mksession! .vim_session <cr> " Quick write session with F2
 map <F3> :source .vim_session <cr>     " And load session with F3
 
 " Edit or load .vimrc
-nmap <silent> ,ev :e $MYVIMRC<CR>
+nmap <silent> ,ev :tabe $MYVIMRC<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " Replace tabs with spaces
@@ -132,7 +132,15 @@ imap <C-space> <C-n>
 
 au BufEnter *.hs compiler ghc
 
+"function! OpenRubySource()
+"  let class_name = tolower(expand("<cfile>"))
+"  let ruby_file = system("gem which ".class_name)
+"  exec "tabe ".ruby_file
+"endfunction
+"
+"nmap <Leader>v :call OpenRubySource()<cr>
+
 function! CheatSheet(name) 
   let cheat = system("cheat", a:name)
-  :tabe
+  :tabe 
 endfunction
