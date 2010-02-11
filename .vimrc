@@ -6,6 +6,7 @@ filetype plugin on
 filetype indent on
 
 syntax on
+syntax sync fromstart
 
 set lazyredraw
 
@@ -66,7 +67,6 @@ let g:speckyRunRdocKey = "<leader>r"
 map <leader>t :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 map <leader>T :FuzzyFinderRemoveCache<CR>:ruby finder.rescan!<CR>:FuzzyFinderTextMate<CR>
-
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
 " re-indent the whole file
@@ -84,15 +84,6 @@ nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " Replace tabs with spaces
 nmap <silent> ,rr :1,$retab<CR>
-
-" Toggle paste mode (indent weirdness)
-nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
-
-" Toggle highlighted search
-nmap <silent> ,n :set invhls<CR>:set hls?<CR>
-
-" Toggle word wrapping
-nmap <silent> ,w :set invwrap<CR>:set wrap?<CR>
 
 " cd to directory of the current file
 nmap <silent> ,cd :lcd %:h<CR>
@@ -117,28 +108,11 @@ noremap <silent> ,ck :wincmd k<cr>:close<cr>
 noremap <silent> ,ch :wincmd h<cr>:close<cr>
 noremap <silent> ,cl :wincmd l<cr>:close<cr>
 
-" Close the current window
-noremap <silent> ,cc :close<cr>
-
-" Move the current window to the proper direction from the main Vim window
-noremap <silent> ,ml <C-W>L
-noremap <silent> ,mk <C-W>K
-noremap <silent> ,mh <C-W>H
-noremap <silent> ,mj <C-W>J
-
 " Remap omni-completion to CTRL+Space
 nmap <C-space> ea<C-n>
 imap <C-space> <C-n>
 
 au BufEnter *.hs compiler ghc
-
-"function! OpenRubySource()
-"  let class_name = tolower(expand("<cfile>"))
-"  let ruby_file = system("gem which ".class_name)
-"  exec "tabe ".ruby_file
-"endfunction
-"
-"nmap <Leader>v :call OpenRubySource()<cr>
 
 function! CheatSheet(name) 
   let cheat = system("cheat", a:name)
