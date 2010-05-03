@@ -72,3 +72,8 @@ snippet get
 # Get Element
 snippet gett
 	getElementBy${1:Id}('${2}')${3}
+# ScrewUnit test 
+snippet it
+	it('${1}', function() {
+	  expect(${2}).to(equal, ${3});
+	});

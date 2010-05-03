@@ -11,6 +11,7 @@ Leader Ref:
 ,v      ruby source lookup for the path under the cursor
 ,i      re-Indent the whole file
 ,d      toggle nerDtree
+yi"     Yank the text Inside the Quotes
 
 :%s/\<word1\>/word2/gc          Confirm and replace all instance of word1 with word2 in the current file
 di)                             Delete the contents Inside the paren block we're currently in. 
@@ -18,7 +19,7 @@ ca{                             Use a instead of i to include the parens themsel
 yib                             Yank the contents Inside of the current Block (, {, [, etc...
 :%s/\n/\r/g                     Replace newline with newline (notice difference between search and replace)
 :s/foo/bar/I                    Force a case sensitive search and replace of 'foo' in the current line
-:set filetype=ruby              Force the file type to ruby
+:set ft=ruby                    Force the file type to ruby
 "Np                             Paste the last Nth delete
 !ls *.rb                        Insert the list of ruby files in this directory at the cursor
 CTRL-U                          half screen Up
