@@ -23,6 +23,10 @@ set wrap
 " no beeps
 set vb
 
+set wildignore+=vendor,tmp
+
+set guifont=Inconsolata:h17.00
+
 " central backup directories
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -36,7 +40,7 @@ let mapleader = ","
 
 " Better buffer management, horrible setting name
 " set hidden
-set history=1000
+set history=10000
 set sts=2
 set smarttab
 set shiftwidth=2
@@ -64,13 +68,14 @@ let g:fuzzy_matching_limit = 7000
 let g:fuzzy_ceiling = 100000
 let g:speckyRunRdocKey = "<leader>r"
 
-map <leader>t :FuzzyFinderTextMate<CR>
-map <leader>b :FuzzyFinderBuffer<CR>
-map <leader>T :FuzzyFinderRemoveCache<CR>:ruby finder.rescan!<CR>:FuzzyFinderTextMate<CR>
+map <leader>T :CommandTFlush<CR>:CommandT<CR>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
 " re-indent the whole file
 map <leader>i gg=G 
+
+" Close the current buffer
+nmap <leader>w :bd<CR>
 
 " Open my custom help file
 map <leader>c :tabe ~/.vim/doc/cheetSheet.txt<CR>
