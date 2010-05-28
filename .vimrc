@@ -37,7 +37,10 @@ noremap <silent> ,k :wincmd k<cr>
 noremap <silent> ,l :wincmd l<cr>
 
 " Replace all instances of the word under the cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+" Replace the selected text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Close the window in the proper direction
 noremap <silent> ,cj :wincmd j<cr>:close<cr>
@@ -71,6 +74,7 @@ set nohlsearch
 set paste
 " word wrapping
 set wrap
+set lbr
 " no beeps
 set vb
 
@@ -84,6 +88,10 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Browser for viewing documentation (in haskell)
 :let g:haddock_browser="/usr/bin/open"
+
+" Disable F1 help
+:nmap <F1> :echo<CR>
+:imap <F1> <C-o>:echo<CR>
 
 " Better buffer management, horrible setting name
 " set hidden
@@ -124,3 +132,7 @@ function! CheatSheet(name)
   let cheat = system("cheat", a:name)
   :tabe 
 endfunction
+
+" Remap Cmd-S to: Save All; Return to normal mode
+inoremenu File.Save <Esc>:wa<CR>
+
