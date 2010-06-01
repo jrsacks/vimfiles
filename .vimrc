@@ -5,14 +5,14 @@ set guioptions=ac
 
 let mapleader = ","
 
+" Replace the selected text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 nmap <leader>rm :RTmodel <C-r><C-w><CR>:AS<CR>
 nmap <leader>rc :RTcontroller <C-r><C-w>s<CR>:AS<CR>
 
-" re-indent the whole file
-map <leader>i gg=G 
-
-" Close the current buffer
-nmap <leader>w :bd<CR>
+" re-indent the whole file, remove unnecessary whitespace
+map <leader>i :call<SID>ReformatAndClean()<CR>
 
 " Open my custom help file
 map <leader>c :tabe ~/.vim/doc/cheetSheet.txt<CR>
@@ -36,11 +36,14 @@ noremap <silent> ,j :wincmd j<cr>
 noremap <silent> ,k :wincmd k<cr>
 noremap <silent> ,l :wincmd l<cr>
 
+" Move the cursor to move the window itself
+noremap <silent> ,H :wincmd H<cr>
+noremap <silent> ,J :wincmd J<cr>
+noremap <silent> ,K :wincmd K<cr>
+noremap <silent> ,L :wincmd L<cr>
+
 " Replace all instances of the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-
-" Replace the selected text
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Close the window in the proper direction
 noremap <silent> ,cj :wincmd j<cr>:close<cr>
@@ -78,7 +81,7 @@ set lbr
 " no beeps
 set vb
 
-set wildignore+=vendor,tmp
+set wildignore+=vendor,tmp,target
 
 set guifont=Inconsolata:h17.00
 
@@ -94,7 +97,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 :imap <F1> <C-o>:echo<CR>
 
 " Better buffer management, horrible setting name
-" set hidden
+set hidden
+
 set history=10000
 set sts=2
 set smarttab
@@ -115,12 +119,9 @@ set path+=/opt/local/bin
 " I'm so nice to Windoze
 set shellslash
 
-set statusline=%F%m%r%h%w\ [Line=%03l,Col=%03v][%p%%]\ [ASCII=\%03.3b]\ [Format=%{&ff}]\ [Type=%y]
+set statusline=%F%m%r%h%w\ [Line=%03l,Col=%03v][%p%%]\ [Type=%y]
 set laststatus=2
 
-let g:fuzzy_ignore = "*.log"
-let g:fuzzy_matching_limit = 7000
-let g:fuzzy_ceiling = 100000
 let g:speckyRunRdocKey = "<leader>r"
 set grepprg=ack
 set grepformat=%f:%l:%m
@@ -128,11 +129,23 @@ set grepformat=%f:%l:%m
 :color blackboard  
 au BufEnter *.hs compiler ghc
 
-function! CheatSheet(name) 
-  let cheat = system("cheat", a:name)
-  :tabe 
-endfunction
-
 " Remap Cmd-S to: Save All; Return to normal mode
 inoremenu File.Save <Esc>:wa<CR>
 
+function! <SID>ReformatAndClean()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+
+  "Replace tabs with spaces
+  :1,$retab 
+  "Removing Trailing whitespace
+  %s/\s\+$//e 
+  "Reindent the file
+  :normal gg=G 
+
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)  
+endfunction
