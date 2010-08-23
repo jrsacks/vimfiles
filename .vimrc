@@ -97,7 +97,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 :imap <F1> <C-o>:echo<CR>
 
 " Better buffer management, horrible setting name
-set hidden
+"set hidden
 
 set history=10000
 set sts=2
@@ -131,6 +131,11 @@ au BufEnter *.hs compiler ghc
 
 " Remap Cmd-S to: Save All; Return to normal mode
 inoremenu File.Save <Esc>:wa<CR>
+
+" Falls down if you start vim in your home directory
+"if filereadable($PWD. "/.vimrc")
+"  source $PWD/.vimrc
+"endif
 
 function! <SID>ReformatAndClean()
   " Preparation: save last search, and cursor position.
