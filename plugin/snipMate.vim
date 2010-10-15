@@ -96,6 +96,20 @@ fun! ResetSnippets()
 	let s:snippets = {} | let s:multi_snips = {} | let g:did_ft = {}
 endf
 
+" Reload snippets for filetype.
+fun! ReloadSnippets(ft)
+  let ft = a:ft == '' ? '_' : a:ft
+  call GetSnippets(g:snippets_dir, ft)
+endf
+
+" Reload snippets for all filetypes.
+fun! ReloadAllSnippets()
+  call ResetSnippets()
+  for ft in keys(g:did_ft)
+    call ReloadSnippets(ft)
+  endfor
+endf
+
 let g:did_ft = {}
 fun! GetSnippets(dir, filetypes)
 	for ft in split(a:filetypes, '\.')

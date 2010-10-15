@@ -6,14 +6,17 @@ snippet proto
 	};
 # Function
 snippet fun
-	function ${1} (${2:arg}) {
-		${3};
+	function ${1}() {
+		${2};
 	}
 # Anonymous Function
-snippet f
-	function(${2:arg}) {
-		${1};
+snippet fu
+	function(${1:arg}) {
+		${2};
 	}
+# Inline Function
+snippet f
+	function() { return ${1}; }
 # if
 snippet if
 	if (${1:true}) {${2}};
@@ -79,15 +82,24 @@ snippet it
 	it('${1}', function() {
 	  expect(${2}).toEqual(${3});
 	});
+# Jasmine test 
 snippet bef
 	beforeEach(function() {
 	  ${1};
 	});
-snippet def
+# Jasmine describe 
+snippet des
 	describe('${1}', function() {
 	  ${2}
 	});
+# Modit module
 snippet mod
 	modit('${1}', function() {
 	  ${2}
 	});
+# Underscore reduce
+snippet red
+	_.reduce(${1}, function(memo, item) {
+	  ${2}
+	  return memo;
+	}, {});

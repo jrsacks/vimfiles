@@ -21,6 +21,9 @@ map <leader>c :tabe ~/.vim/doc/cheetSheet.txt<CR>
 nmap <silent> ,ev :tabe $MYVIMRC<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
 
+" Open snippets directory
+map <leader>es :tabe ~/.vim/snippets/<CR>
+
 " Replace tabs with spaces
 nmap <silent> ,rr :1,$retab<CR>
 
@@ -83,7 +86,7 @@ set vb
 
 set wildignore+=vendor,tmp,target
 
-set guifont=Inconsolata:h17.00
+set guifont=Inconsolata:h18.00
 
 " central backup directories
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
