@@ -5,6 +5,10 @@ set guioptions=ac
 
 let mapleader = ","
 
+" Snipmate key settings
+let g:SuperTabMappingForward="<tab>"
+let g:SuperTabMappingBackward="<s-tab>"
+
 " Replace the selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
@@ -84,7 +88,7 @@ set lbr
 " no beeps
 set vb
 
-set wildignore+=vendor,tmp,target
+set wildignore+=vendor,tmp,target,.privatebuild
 
 set guifont=Inconsolata:h18.00
 
@@ -157,3 +161,4 @@ function! <SID>ReformatAndClean()
   let @/=_s
   call cursor(l, c)  
 endfunction
+
