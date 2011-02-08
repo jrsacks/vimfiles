@@ -6,8 +6,8 @@ set guioptions=ac
 let mapleader = ","
 
 " Snipmate key settings
-let g:SuperTabMappingForward="<tab>"
-let g:SuperTabMappingBackward="<s-tab>"
+let g:SuperTabMappingForward="<c-space>"
+let g:SuperTabMappingBackward="<s-space>"
 
 " Replace the selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
