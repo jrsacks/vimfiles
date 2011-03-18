@@ -1,6 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/brady/workspace/CTBook/Book/code/ruby'
 let g:netrw_dirhist_2='/Users/brady/workspace/topic_watcher'
 let g:netrw_dirhist_3='/Users/brady/workspace/topic_watcher/lib'
-let g:netrw_dirhist_4='/Users/brady/workspace/pie-of-sauron/public/css'
