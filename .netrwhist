@@ -1,5 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/brady/workspace/CTBook/Book/code/ruby'
 let g:netrw_dirhist_2='/Users/brady/workspace/topic_watcher'
 let g:netrw_dirhist_3='/Users/brady/workspace/topic_watcher/lib'
+let g:netrw_dirhist_4='/Users/brady/workspace/ripsaw'
+let g:netrw_dirhist_5='/Users/brady/workspace/ripsaw/bin'
+let g:netrw_dirhist_6='/Users/brady/workspace/ripsaw'
+let g:netrw_dirhist_7='/Users/brady/workspace/ripsaw/lib'
+let g:netrw_dirhist_8='/Users/brady/workspace/ripsaw'
+let g:netrw_dirhist_9='/Users/brady/workspace/ripsaw/bin'
