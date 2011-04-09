@@ -12,30 +12,15 @@ let g:SuperTabMappingBackward="<s-space>"
 " Replace the selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-nmap <leader>rm :RTmodel <C-r><C-w><CR>:AS<CR>
-nmap <leader>rc :RTcontroller <C-r><C-w>s<CR>:AS<CR>
-
 " re-indent the whole file, remove unnecessary whitespace
 map <leader>i :call<SID>ReformatAndClean()<CR>
-
-" Open my custom help file
-map <leader>c :tabe ~/.vim/doc/cheetSheet.txt<CR>
 
 " Edit or load .vimrc
 nmap <silent> ,ev :tabe $MYVIMRC<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
 
-" Open snippets directory
-map <leader>es :tabe ~/.vim/snippets/<CR>
-
-" Replace tabs with spaces
-nmap <silent> ,rr :1,$retab<CR>
-
 " cd to directory of the current file
 nmap <silent> ,cd :lcd %:h<CR>
-
-" De-shouldify
-:noremap <leader>S :%s/it \"should\s\(\w*\)/it "\1s/gc<CR>
 
 " Move the cursor to the window in the proper direction
 noremap <silent> ,h :wincmd h<cr>
@@ -51,12 +36,6 @@ noremap <silent> ,L :wincmd L<cr>
 
 " Replace all instances of the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-
-" Close the window in the proper direction
-noremap <silent> ,cj :wincmd j<cr>:close<cr>
-noremap <silent> ,ck :wincmd k<cr>:close<cr>
-noremap <silent> ,ch :wincmd h<cr>:close<cr>
-noremap <silent> ,cl :wincmd l<cr>:close<cr>
 
 " Remap omni-completion to CTRL+Space
 nmap <C-space> ea<C-n>
@@ -96,9 +75,6 @@ set guifont=Inconsolata:h18.00
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" Browser for viewing documentation (in haskell)
-:let g:haddock_browser="/usr/bin/open"
-
 " Disable F1 help
 :nmap <F1> :echo<CR>
 :imap <F1> <C-o>:echo<CR>
@@ -121,15 +97,9 @@ set autowrite
 set ignorecase
 set smartcase
 
-" Add macports path to path
-set path+=/opt/local/bin
-" I'm so nice to Windoze
-set shellslash
-
 set statusline=%F%m%r%h%w\ [Line=%03l,Col=%03v][%p%%]\ [Type=%y]
 set laststatus=2
 
-let g:speckyRunRdocKey = "<leader>r"
 set grepprg=ack
 set grepformat=%f:%l:%m
 
@@ -138,11 +108,6 @@ au BufEnter *.hs compiler ghc
 
 " Remap Cmd-S to: Save All; Return to normal mode
 inoremenu File.Save <Esc>:wa<CR>
-
-" Falls down if you start vim in your home directory
-"if filereadable($PWD. "/.vimrc")
-"  source $PWD/.vimrc
-"endif
 
 function! <SID>ReformatAndClean()
   " Preparation: save last search, and cursor position.
