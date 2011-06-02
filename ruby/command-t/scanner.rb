@@ -77,6 +77,7 @@ module CommandT
             accumulator << path[@prefix_len + 1..-1]
           elsif File.directory?(path)
             next if @depth >= @max_depth
+            next if path.match(/node_modules/)
             next if (entry.match(/\A\./) && !@scan_dot_directories)
             @depth += 1
             add_paths_for_directory path, accumulator
